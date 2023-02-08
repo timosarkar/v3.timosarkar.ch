@@ -1,0 +1,34 @@
+---
+layout: base
+---
+
+<main id="main" aria-label="main content">
+  <div class="container">
+    <h1 class="page__title">{{ title | nbsp }}</h1>
+
+    {% if type == 'post' %}
+      <p class="page__subtitle">
+        <time datetime="{{ page.date | 'date_to_xmlschema' }}">
+          {{ page.date | date: '%d %B, %Y'}}
+        </time>
+      </p>
+    {% endif %}
+ 
+    {% if excerpt %}
+      <p class="page__excerpt">
+        {{ excerpt | markdownify }}
+      </p>
+    {% endif %}
+    
+    {% if external_url %}
+      <p class="page__note">
+        <a class="page__note-link" rel="noopener noreferrer" href="{{ external_url }}">
+          Article originally published at {{ host }}
+        </a>
+      </p>
+    {% endif %}
+
+    {{ content }}
+  </div>
+</main>
+{% include 'footer' %}
