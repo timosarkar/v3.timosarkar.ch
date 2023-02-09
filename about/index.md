@@ -29,9 +29,12 @@ This is a field that I got into pretty recently. I think it is very important to
 
 # DeFi (decentralized finance)
 
+todo
+
+# IT Systems and Systems engineering
+
+todo
+
 # Futurism and Visioneering
 
-# Design and Marketing 
-
-I am a big fan of minimalism and abstract brutalism
-
+todo
