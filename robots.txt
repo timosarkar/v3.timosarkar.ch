@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://timosarkar.surge.sh/sitemap.xml

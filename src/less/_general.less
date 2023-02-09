@@ -1,0 +1,115 @@
+@import './__vars.less';
+@import './_fonts.less';
+
+html {
+  box-sizing: border-box;
+
+  // general font size is declared at root level to use rem units
+  font-size: 16px;
+
+  @media (min-width: @breakpoints__desktop--start) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 15px;
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+
+  // disable tap color in Chrome mobile
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+* {
+  // adjust global focus outline styles
+  &:focus {
+    outline-color: var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+::selection {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family: 'Inter';
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: 100%;
+
+  // transition between light and dark color scheme
+  transition-property: color, background-color;
+  transition-duration: 0.25s;
+}
+
+/**
+ * Some browsers don't support font-feature-settings inside font face
+ * declarations, so they are needed at tag level. 
+ */
+body {
+  font-feature-settings: 'ss01' on;
+}
+
+em {
+  font-feature-settings: 'ss01' on, 'cv05' on, 'cv11' on;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    text-decoration-skip-ink: all;
+    text-decoration-thickness: 0.075em;
+    text-underline-offset: 2px;
+  }
+}
+
+.container {
+  padding: var(--spacing);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: @sizing__container;
+
+  // removing spacing on leading elements
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.color-scheme__button {
+  border: none;
+  border-radius: 50%;
+  background-color: var(--accent);
+  height: 2rem;
+  position: absolute;
+  right: var(--spacing);
+  top: var(--spacing);
+  width: 2rem;
+
+  /**
+   * Only add active state styles when JavaScript takes
+   * over the toggle button and makes it focusable.
+   */
+  &[tabindex='0'] {
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}

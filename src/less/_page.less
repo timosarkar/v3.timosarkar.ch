@@ -1,0 +1,207 @@
+@import './__vars.less';
+
+nav {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing);
+
+  @media (min-width: @breakpoints__desktop--start) {
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: var(--spacing) 6rem var(--spacing) var(--spacing);
+  }
+}
+
+.nav__link {
+  font-size: 1.25rem; // mobile 20px
+  line-height: 2rem; // center vertically with logo
+  margin: 0 0 0.1rem;
+
+  @media (min-width: @breakpoints__desktop--start) {
+    font-size: 1.111112rem; // desktop 20px (1) position in Major Second Scale
+    margin: 0 1rem 0 0;
+  }
+
+  &:last-of-type {
+    margin: 0;
+  }
+}
+
+.nav__link--home {
+  color: var(--text);
+}
+
+.nav__link--skip-navigation {
+  clip: rect(1px, 1px, 1px, 1px);
+  color: var(--secondary);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+
+  // show "skip navigation" link on focus
+  &:focus {
+    clip: auto;
+    height: auto;
+    width: auto;
+    position: static;
+  }
+}
+
+main {
+  margin: 2rem 0;
+
+  @media (min-width: @breakpoints__desktop--start) {
+    margin: 4rem 0;
+  }
+}
+
+.page__title {
+  font-size: 2.625rem; // mobile 42px
+  font-weight: 800;
+  letter-spacing: @typography__letter-spacing--title;
+  line-height: 1.15;
+  margin: 0;
+
+  @media (min-width: @breakpoints__desktop--start) {
+    /**
+     * desktop 54px, and completely out of the Major Second Scale. I came up
+     * with this number cause I couldn't decide which size was big enough
+     * but not too big at the same time.
+     */
+    font-size: 3rem;
+  }
+}
+
+.page__subtitle {
+  color: var(--secondary);
+  font-size: 0.9375rem; // mobile 15px
+  letter-spacing: 0.01em;
+  margin: 0.5rem 0 0;
+  text-transform: uppercase;
+
+  @media (min-width: @breakpoints__desktop--start) {
+    font-size: 0.888888rem; // desktop 16x (-1) position in Major Second Scale
+  }
+}
+
+.page__excerpt {
+  color: var(--secondary);
+  font-size: 1.0625rem; // mobile 17px
+  margin: 2rem 0;
+
+  @media (min-width: @breakpoints__desktop--start) {
+    font-size: 1.083333rem; // desktop 19.5px (~1) position in Major Second Scale
+    margin: 4rem 0 3rem;
+  }
+}
+
+.page__note {
+  background-color: var(--note-background);
+  border-radius: @corners__note;
+  margin-bottom: 2rem;
+  padding: 1rem var(--spacing);
+  text-align: center;
+
+  @media (min-width: @breakpoints__desktop--start) {
+    margin-bottom: 3rem;
+  }
+}
+
+.page__note-link {
+  color: var(--text);
+}
+
+main {
+  // vertical spacing inside main content
+  p,
+  ul {
+    margin: 1.5rem 0;
+
+    @media (min-width: @breakpoints__desktop--start) {
+      margin: 2rem 0;
+    }
+  }
+}
+
+h2 {
+  font-size: 2rem; // mobile 32px, desktop 36px (~6) position in Major Second Scale
+  font-weight: 800;
+  letter-spacing: @typography__letter-spacing--title;
+  line-height: 1.15;
+  margin: 3rem 0 0;
+}
+
+h3 {
+  font-size: 1.555556rem; // mobile 24.88px, desktop 28px (~4) position in Major Second Scale
+  font-weight: 800;
+  letter-spacing: @typography__letter-spacing--title;
+  line-height: 1.15;
+  margin: 2rem 0 0;
+}
+
+h4 {
+  font-size: 1.222223rem; // mobile 19.55px, desktop 22px (~2) position in Major Second Scale
+  font-weight: 800;
+  letter-spacing: @typography__letter-spacing--title;
+  line-height: 1.15;
+  margin: 2rem 0 0;
+}
+
+.header-anchor {
+  // render symbol via pseudo-element content so it doesn't show up in
+  // browsers' reader mode
+  &::before {
+    content: '#';
+    display: inline-block;
+  }
+
+  &:hover,
+  &:focus {
+    &::before {
+      text-decoration: underline;
+      text-decoration-skip-ink: all;
+      text-decoration-thickness: 0.075em;
+      text-underline-offset: 2px;
+    }
+  }
+}
+
+ul {
+  padding: 0 0 0 2rem;
+}
+
+li + li {
+  margin: 0.5rem 0 0;
+}
+
+blockquote {
+  border-color: var(--accent);
+  border-width: 0 0 0 0.25rem;
+  border-style: solid;
+  margin: 2.5rem 0;
+  padding: calc(var(--spacing) / 2) var(--spacing);
+
+  @media (min-width: @breakpoints__desktop--start) {
+    margin: 3rem 0;
+  }
+
+  p {
+    color: var(--secondary);
+    font-size: 1.125rem; // mobile 18px
+    font-weight: 700;
+    margin: 0;
+
+    @media (min-width: @breakpoints__desktop--start) {
+      font-size: 1.111112rem; // desktop 20px (1) position in Major Second Scale
+    }
+  }
+}
+
+cite {
+  color: var(--text);
+  display: inline-block;
+  font-style: normal; // reset italic native style
+  margin: 0.5rem 0 0;
+}
