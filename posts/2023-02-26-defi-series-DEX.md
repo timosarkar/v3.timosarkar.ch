@@ -1,5 +1,5 @@
 ---
-title: DeFi Series: Intro
+title: DeFi Series DEX
 excerpt: Decentralized Exchanges (DEX)
 ---
 
