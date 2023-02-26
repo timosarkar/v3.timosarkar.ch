@@ -6,14 +6,12 @@ excerpt: my blog
 ---
 
 <ul class="blog-list">
+{% assign post = collections.blog | sort:'title' %}
 {% for post in collections.blog %}
   <li class="blog-list-item">
     <a style="text-decoration: underline;" class="blog-list-item__title" href="{{ post.url }}">
       {{ post.data.title | nbsp }}
     </a>
-  {% if forloop.first %}
-  <a class="blog-list-item__cta" href="{{ post.url }}">Read the article</a>
-  {% endif %}
   </li>
 {% endfor %}
 </ul>
